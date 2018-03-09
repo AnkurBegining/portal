@@ -5,11 +5,11 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import never_cache
 from ckeditor_uploader import views
 from django.views.static import serve
-
 from common.views import IndexView
 from common.views import ContactView
 from common.views import AboutUsView
 from common.views import NewCommunityProposalView
+
 
 try:
     admin.autodiscover()

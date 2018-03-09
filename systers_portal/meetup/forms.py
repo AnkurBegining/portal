@@ -14,7 +14,7 @@ class RequestMeetupLocationForm(ModelFormWithHelper):
     """ Form to create a new Request Meetup Location by a systers user. """
     class Meta:
         model = RequestMeetupLocation
-        fields = ('name', 'slug', 'location', 'description', 'email')
+        fields = ('name', 'location', 'description', 'email')
         helper_class = SubmitCancelFormHelper
         helper_cancel_href = "{% url 'list_meetup_location' %}"
 

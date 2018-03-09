@@ -5,7 +5,6 @@ from django.shortcuts import get_object_or_404
 from django.views.generic import RedirectView, ListView, FormView
 from django.views.generic.detail import SingleObjectMixin
 from braces.views import LoginRequiredMixin, PermissionRequiredMixin
-
 from community.models import Community
 from membership.constants import *  # NOQA
 from membership.forms import TransferOwnershipForm

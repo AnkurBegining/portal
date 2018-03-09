@@ -1,7 +1,6 @@
 from django.core.exceptions import ImproperlyConfigured
 from django.forms import ModelForm
 
-
 class ModelFormWithHelper(ModelForm):
     """Custom ModelForm that allows to attach a crispy-forms FormHelper class,
     that will modify in some way the rendering of the layout.

@@ -5,6 +5,7 @@ from guardian.shortcuts import assign_perm
 from meetup.permissions import groups_templates, group_permissions
 
 
+
 @transaction.atomic
 def create_groups(meetup_location):
     """Create groups for a Meetup Location instance using its name
