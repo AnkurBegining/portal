@@ -1,6 +1,7 @@
 from django.core.exceptions import ImproperlyConfigured
 from django.forms import ModelForm
 
+
 class ModelFormWithHelper(ModelForm):
     """Custom ModelForm that allows to attach a crispy-forms FormHelper class,
     that will modify in some way the rendering of the layout.
@@ -12,6 +13,7 @@ class ModelFormWithHelper(ModelForm):
                 model = FooModel
                 helper_class = FooFormHelper
     """
+
     def __init__(self, *args, **kwargs):
         super(ModelFormWithHelper, self).__init__(*args, **kwargs)
 
@@ -21,8 +23,7 @@ class ModelFormWithHelper(ModelForm):
             self.helper = helper_class(self, **kwargs)
         else:
             raise ImproperlyConfigured(
-                "{0} is missing a 'helper_class' meta attribute.".format(
-                    self.__class__.__name__))
+                "{0} is missing a 'helper_class' meta attribute.".format(self.__class__.__name__))
 
     def get_helper_kwargs(self):
         """Get all helper attributes from class Meta by stripping them of
