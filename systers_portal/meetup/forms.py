@@ -2,6 +2,7 @@ from django import forms
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
+
 from common.forms import ModelFormWithHelper
 from common.helpers import SubmitCancelFormHelper
 from meetup.models import Meetup, MeetupLocation, Rsvp, SupportRequest, RequestMeetupLocation
@@ -13,7 +14,7 @@ class RequestMeetupLocationForm(ModelFormWithHelper):
     """ Form to create a new Request Meetup Location by a systers user. """
     class Meta:
         model = RequestMeetupLocation
-        fields = ('name', 'location', 'description', 'email')
+        fields = ('name', 'slug', 'location', 'description', 'email')
         helper_class = SubmitCancelFormHelper
         helper_cancel_href = "{% url 'list_meetup_location' %}"
 
@@ -33,7 +34,6 @@ class RequestMeetupLocationForm(ModelFormWithHelper):
 class AddMeetupForm(ModelFormWithHelper):
     """Form to create new Meetup. The created_by and the meetup_location of which meetup belong to
     are expected to be provided when initializing the form:
-
     * created_by - currently logged in user
     * meetup_location - to which Meetup belongs
     """
