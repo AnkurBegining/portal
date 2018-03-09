@@ -2,7 +2,6 @@ from django import forms
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
-
 from common.forms import ModelFormWithHelper
 from common.helpers import SubmitCancelFormHelper
 from meetup.models import Meetup, MeetupLocation, Rsvp, SupportRequest, RequestMeetupLocation

@@ -2,10 +2,10 @@ from django.db import models
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from ckeditor.fields import RichTextField
-from django.db.models.signals import pre_save
+# from django.db.models.signals import pre_save
 
 from users.models import SystersUser
-from django.utils.text import slugify
+# from django.utils.text import slugify
 
 
 class Post(models.Model):
@@ -14,8 +14,10 @@ class Post(models.Model):
     """
     slug = models.SlugField(max_length=150, verbose_name="Slug")
     title = models.CharField(max_length=255, verbose_name="Title")
-    date_created = models.DateField(auto_now=False, auto_now_add=True, verbose_name="Date published")
-    date_modified = models.DateField(auto_now=True, auto_now_add=False, verbose_name="Date last modified")
+    date_created = models.DateField(auto_now=False, auto_now_add=True,
+                                    verbose_name="Date published")
+    date_modified = models.DateField(auto_now=True, auto_now_add=False,
+                                     verbose_name="Date last modified")
     author = models.ForeignKey(SystersUser, verbose_name="Author")
     content = RichTextField(verbose_name="Content")
 
