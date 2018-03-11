@@ -14,10 +14,9 @@ If you are an Outreachy Applicant, start with reading [this](https://github.com/
 Setup for developers
 --------------------
 
-1. Make sure you have installed Python 3.4 (preferably latest minor release),
-   [pip](https://pip.pypa.io/en/latest/) and [virtualenv](http://www.virtualenv.org/en/latest/).
-1. If working behind a proxy, make sure your environment variables are properly set up. If 
-   you still get an error due to proxy, use "-E" flag along with "sudo" to export all the 
+1. Make sure you have installed Python 3.6, [pip3](https://pip.pypa.io/en/latest/) and [virtualenv](http://www.virtualenv.org/en/latest/).
+1. If working behind a proxy, make sure your environment variables are properly set up. If
+   you still get an error due to proxy, use "-E" flag along with "sudo" to export all the
    environment variables.
 1. Make sure you have python3-dev installed on your operating system. For Debian, you would additionally require libpq-dev.
    Install by using `sudo apt-get install libpq-dev python3-dev`
@@ -29,12 +28,20 @@ Setup for developers
   the `portal` directory. If working behind a proxy, follow the instructions [here](https://cms-sw.github.io/tutorial-proxy.html).
 1. Create a virtual environment with Python 3 and install dependencies:
 
- ```bash
- $ virtualenv venv --python=/path/to/python3
- $ source venv/bin/activate
- $ pip install -r requirements/dev.txt
- ```
+     ```bash
+     $ virtualenv venv --python=/path/to/python3
+     $ source venv/bin/activate
+     $ pip install -r requirements/dev.txt
+     ```
 1. Create `systersdb` database, where `systersdb` might be any suitable name.
+    ```
+    $ sudo -i -u postgres
+    $ createuser <any name e.g. alice> --pwprompt
+    $ psql
+    $ CREATE DATABASE systersdb;
+    $ \c systersdb;
+    $ GRANT ALL PRIVILEGES ON DATABASE systersdb to <the name>;
+    ```
 1. Fill in the database details in `systers_portal/settings/dev.py`.
 1. Run `export SECRET_KEY=foobarbaz` in your terminal, ideally the secret key
   should be 40 characters long, unique and unpredictable. Optionally to set the
